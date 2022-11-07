@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { socket, SocketContext } from './context/socket';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+let id = window.prompt("ID");
 root.render(
   <React.StrictMode>
-    <App />
+    <SocketContext.Provider value={socket}>
+      <App ID={id} />
+    </SocketContext.Provider>
   </React.StrictMode>
 );
 
